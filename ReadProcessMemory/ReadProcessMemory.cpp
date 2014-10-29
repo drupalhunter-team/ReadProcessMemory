@@ -1,4 +1,4 @@
-// ReadProcessMemory.cpp : �������̨Ӧ�ó������ڵ㡣
+// ReadProcessMemory.cpp : 定义控制台应用程序的入口点。
 //
 
 #include "stdafx.h"
@@ -23,8 +23,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	HMODULE hModules[1];
-	DWORD dwPcbNeeded;
-	BOOL bSucceed = EnumProcessModules(hProcess, hModules, sizeof(hModules), &dwPcbNeeded);
+	DWORD dwCbNeeded;	//返回需要的数组的大小（字节为单位）
+	BOOL bSucceed = EnumProcessModules(hProcess, hModules, sizeof(hModules), &dwCbNeeded);
 	if (!bSucceed) {
 		dwErrorCode = GetLastError();
 		printf("EnumProcessModules failed, error %d(0x%x)\n", dwErrorCode, dwErrorCode);
